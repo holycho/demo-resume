@@ -1,0 +1,54 @@
+@color-primary   : #83BBB4;
+
+.radio-group {
+    margin    : 0px 6px;
+    // display: inline-block;
+    float     : right;
+    width     : 60px;
+}
+
+.radio-input {
+    display: none;
+}
+
+.radio-label {
+    font-size   : 14px;
+    cursor      : pointer;
+    position    : relative;
+    padding-left: 23px;
+    color       : @color-primary;
+}
+
+.radio-button {
+    /* 自定義樣式的span */
+    height       : 12px;
+    width        : 12px;
+    border       : 2px solid @color-primary;
+    border-radius: 50%;
+    display      : inline-block;
+    position     : absolute;
+    left         : 0;
+    top          : 0;
+    margin       : 2px 1px;
+}
+
+.radio-button::after {
+    /* 中間點點 */
+    content         : "";
+    display         : block;
+    height          : 7px;
+    width           : 7px;
+    border-radius   : 50%;
+    position        : absolute;
+    top             : 50%;
+    left            : 50%;
+    transform       : translate(-50%, -50%);
+    background-color: @color-primary;
+    opacity         : 0;
+    transition      : opacity 0.2s;
+}
+
+.radio-input:checked~.radio-label .radio-button::after {
+    /* 選中radio時 才顯示中間點點 */
+    opacity: 1;
+}
