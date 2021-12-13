@@ -1,0 +1,19 @@
+{
+    "skill": [
+        {
+            "id": 1,
+            "name": "Javascript",
+            "level": 4
+        },
+        {
+            "id": 2,
+            "name": "React",
+            "level": 4
+        },
+        {
+            "id": 3,
+            "name": "Nodejs+Express",
+            "level": 3
+        }
+    ]
+}

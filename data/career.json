@@ -1,0 +1,36 @@
+{
+    "work": [
+        {
+            "company": "永洋科技",
+            "begin": 2007,
+            "end": 2009,
+            "position": [
+                {
+                    "name": "軟體工程師",
+                    "begin": 2007,
+                    "end": 2009,
+                    "workContent": "備份應用程式、簡易安裝程式(BCB)、研發日誌(ASP)維運"
+                }
+            ]
+        },
+        {
+            "company": "大猩猩科技",
+            "begin": 2009,
+            "end": 2021,
+            "position": [
+                {
+                    "name": "軟體/資深工程師",
+                    "begin": 2009,
+                    "end": 2018,
+                    "workContent": "廣告推播應用程式、CMS用戶端(C# Winform, WPF)"
+                },
+                {
+                    "name": "前端工程師",
+                    "begin": 2018,
+                    "end": 2021,
+                    "workContent": "IVAR Portal (React, Nodejs, Express)"
+                }
+            ]
+        }
+    ]
+}
