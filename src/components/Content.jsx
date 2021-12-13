@@ -51,7 +51,7 @@ class Content extends Component {
             <div className="photo">
                 <div className="image">
                     {/* <img width="100%" height="100%" src={myPhoto}></img> */}
-                    <img width="100%" height="100%" src={`http://localhost:3000/api/thumbnail/holycho`} />
+                    <img width="100%" height="100%" src={`${window.location.href}api/thumbnail/holycho`} />
                 </div>
                 <div className="image-border"></div>
             </div>
