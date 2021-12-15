@@ -30,17 +30,20 @@ const WorkBlock = props => {
                 position: `${it.duration} | ${it.position}`,
                 desc: it.desc
             }
-        })
-
+        });
+        
         let no = index + 1;
-        return (<div className={`tp-${no}`}>
+        let _list = [];
+        _list.push(<div className={`tp-${no}`}>
             <div className={`${+work.timePoint === thisYear ? "this-" : ""}year`}>{work.timePoint}</div>
             <div className={`line${no}`} />
-            <CompanyCard
-                clsName={`work${no}`}
-                company={work.company}
-                positionList={positions} />
         </div>);
+        _list.push(<CompanyCard
+            clsName={`work${no}`}
+            company={work.company}
+            positionList={positions} />);
+        
+        return _list;
     }
 
     return (<div className="block">
@@ -73,18 +76,18 @@ const SkillBlock = props => {
     if (!props.skill) return null;
 
     const renderSkillTitle = (options) => {
+        let _titles = [];
+        options.map((it, index) => {
+            if (index === options.length - 1) {
+                _titles.push(<div className="lv-name">{it}</div>);
+            } else {
+                _titles.push(<div className="lv-name">{it}</div>);
+                _titles.push(<div className="lv-name-sep"></div>);
+            }
+        })
+
         return (<div className="skill-title">
-            {options.reduce((acc, cur, idx) => {
-                if (idx === options.length - 1) {
-                    acc.push(<div className="lv-name">{cur}</div>)
-                } else {
-                    acc.concat([
-                        <div className="lv-name">{cur}</div>,
-                        <div className="lv-name-sep"></div>
-                    ])
-                }
-                return acc;
-            }, [])}
+            {_titles}
         </div>);
     }
 

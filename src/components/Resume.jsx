@@ -96,6 +96,12 @@ class Resume extends Component {
         })
     }
 
+    renderButtonPanel = () => {
+        return (<div className="cv-button-panel">
+            <div className="cv-button" onClick={e => { this.setState({ viewPaper: !this.state.viewPaper }) }}>{this.state.viewPaper ? "隱藏論文摘要" : "檢視論文摘要"}</div>
+        </div>);
+    }
+
     renderPaperSummary = () => {
         let _summary = [
             "根據歸納，有三個問題會影響到情境感知應用程式(Context-aware application)執行的可靠度，第一個問題是當情境感知應用程式執行時，因為缺陷所造成最終狀態的不可達，",
@@ -166,7 +172,7 @@ class Resume extends Component {
                 work={this.state.work}
                 skill={this.state.skill}
                 education={this.state.education} />
-            <div className="cv-button" onClick={e => { this.setState({ viewPaper: !this.state.viewPaper }) }}>{this.state.viewPaper ? "隱藏論文摘要" : "檢視論文摘要"}</div>
+            {this.renderButtonPanel()}
             {this.state.viewPaper ? this.renderPaperSummary() : null}
             {this.renderWorkExperience()}
         </div>);
