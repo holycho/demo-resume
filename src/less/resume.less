@@ -19,15 +19,43 @@
 
 @keyframes show-height {
   from {
-    height: 0px;
+    transform: scaleY(0);
   }
 
   to {
-    height: 578px;
+    transform: scaleY(1);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  @keyframes change-sep-width {
+    from {
+      width: 0px;
+    }
+
+    to {
+      width: 75%;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  @keyframes change-sep-width {
+    from {
+      width: 0px;
+    }
+
+    to {
+      width: 75%;
+    }
   }
 }
 
 html {
+  // Reset CSS
+  -webkit-text-size-adjust: 100%;
+  min-width               : 320px;
+
   &::-webkit-scrollbar-track {
     background-color: @gray20;
     border-radius   : 8px;
@@ -43,6 +71,42 @@ html {
     background-color: @color-primary;
     opacity         : .5;
   }
+
+  @media screen and (max-width: 800px) {
+    &::-webkit-scrollbar-track {
+      background-color: @gray20;
+      border-radius   : 6px;
+    }
+
+    &::-webkit-scrollbar {
+      width           : 6px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius   : 6px;
+      background-color: @color-primary;
+      opacity         : .5;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    &::-webkit-scrollbar-track {
+      background-color: @gray20;
+      border-radius   : 6px;
+    }
+
+    &::-webkit-scrollbar {
+      width           : 6px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius   : 6px;
+      background-color: @color-primary;
+      opacity         : .5;
+    }
+  }
 }
 
 head {
@@ -54,82 +118,71 @@ head {
 
 body {
   // background: #fff url('../images/background-resume.jpg') fixed no-repeat;
-  background-image   : linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1)), url('../images/background-resume.jpg');
+  background-image   : linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1)), url('../images/background-resume.jpg');
   background-repeat  : no-repeat;
   background-position: top center;
-  background-size    : 100% 1000px;
+  background-size    : 100% 1280px;
   margin             : 0px;
   padding            : 0px;
-}
 
-.app-bar {
-  position        : absolute;
-  top             : 0px;
-  left            : 0px;
-  width           : 100vw;
-  height          : 45px;
-  background-color: #1976d2;
-  display         : flex;
-}
+  @media screen and (max-width: 800px) {
+    background-size: 100% 320px;
+  }
 
-.app-title {
-  display: flex;
-  width  : calc(100vw - 160px);
-}
-
-.app-account {
-  display    : flex;
-  width      : 80px;
-  color      : white;
-  font-size  : 16px;
-  // padding: 0px 20px;
-  line-height: 45px;
-  font-weight: 600;
-}
-
-.app-logout {
-  display      : flex;
-  width        : 30px;
-  line-height  : 35px;
-  color        : white;
-  border       : 1px solid white;
-  border-radius: 5px;
-  margin       : 5px;
-  padding      : 0px 10px;
-  cursor       : pointer;
-
-  &:hover {
-    opacity: .8;
+  @media screen and (max-width: 480px) {
+    background-size: 100% 320px;
+    min-width      : 320px;
   }
 }
 
-.nav-bar {
-  width : 800px;
-  margin: 3px auto;
-}
+.bg {
+  background-image   : linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1)), url('../images/background-resume.jpg');
+  background-repeat  : no-repeat;
+  background-position: top center;
+  background-size    : contain;
+  position           : absolute;
+  width              : 100%;
+  height             : 100%;
 
-.nav-item {
-  display      : inline-block;
-  width        : 120px;
-  background   : @color-background;
-  height       : 30px;
-  line-height  : 30px;
-  border-radius: 5px;
-  text-align   : center;
-  margin       : 0px 5px 0px 0px;
+  @media screen and (max-width: 800px) {
+    background-size: contain;
+  }
+
+  @media screen and (max-width: 480px) {
+    background-size: contain;
+    min-width      : 320px;
+  }
 }
 
 .banner {
-  margin          : 30px auto 5px auto;
-  width           : 800px;
-  height          : 150px;
   background-color: @color-background;
   color           : @color-primary;
   font-weight     : 600;
-  line-height     : 150px;
   overflow        : hidden;
   position        : relative;
   box-shadow      : 0px 0px 15px rgb(0 0 0 / 20%);
+  width           : 800px;
+  height          : 150px;
+  margin          : 30px auto 5px auto;
+  line-height     : 150px;
+  opacity         : .9;
+
+  @media screen and (max-width: 800px) {
+    width      : 95%;
+    height     : 125px;
+    margin     : 10px auto;
+    line-height: 125px;
+    opacity    : .9;
+  }
+
+  @media screen and (max-width: 480px) {
+    width      : 95%;
+    height     : 100px;
+    margin     : 10px auto;
+    line-height: 100px;
+    opacity    : .9;
+    min-width  : 320px;
+  }
 }
 
 .name-block {
@@ -138,6 +191,15 @@ body {
   height  : 100px;
   left    : 150px;
   top     : 25px;
+
+  @media screen and (max-width: 800px) {}
+
+  @media screen and (max-width: 480px) {
+    width : 50%;
+    height: 100%;
+    left  : 50%;
+    top   : 0px;
+  }
 }
 
 .name {
@@ -149,6 +211,13 @@ body {
   top           : 10px;
   letter-spacing: 3px;
   text-shadow   : rgba(0, 0, 0, 0.1) 0.1em 0.1em 0.2em;
+
+  @media screen and (max-width: 800px) {}
+
+  @media screen and (max-width: 480px) {
+    width    : 100%;
+    font-size: 20px;
+  }
 }
 
 .second-name {
@@ -159,6 +228,13 @@ body {
   position   : relative;
   top        : -10px;
   left       : 30px;
+
+  @media screen and (max-width: 800px) {}
+
+  @media screen and (max-width: 480px) {
+    width    : 100%;
+    font-size: 14px;
+  }
 }
 
 .banner-rect {
@@ -169,7 +245,17 @@ body {
   top             : 3px;
   background-color: @color-primary;
   transform       : rotate(20deg);
-  opacity         : .8;
+  opacity         : .9;
+
+  @media screen and (max-width: 800px) {
+    left   : 90%;
+    opacity: .6;
+  }
+
+  @media screen and (max-width: 480px) {
+    left   : calc(100% - 50px);
+    opacity: .3;
+  }
 }
 
 .banner-separator {
@@ -181,6 +267,13 @@ body {
   opacity           : .5;
   animation-name    : change-sep-width;
   animation-duration: 1.5s;
+
+  @media screen and (max-width: 800px) {}
+
+  @media screen and (max-width: 480px) {
+    left : 0px;
+    width: 75%;
+  }
 }
 
 .content {
@@ -191,6 +284,19 @@ body {
   box-sizing      : border-box;
   box-shadow      : 0px 0px 15px rgb(0 0 0 / 20%);
   background-color: #FAFFFF;
+
+  @media screen and (max-width: 800px) {
+    width : 95%;
+    height: auto;
+    margin: 10px auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    width    : 95%;
+    height   : auto;
+    margin   : 10px auto;
+    min-width: 320px;
+  }
 }
 
 .left {
@@ -199,6 +305,20 @@ body {
   width : 240px;
   height: calc(100% - 12px);
   margin: 6px;
+
+  @media screen and (max-width: 800px) {
+    float   : none;
+    position: relative;
+    width   : 95%;
+    height  : auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    float   : none;
+    position: relative;
+    width   : 95%;
+    height  : auto;
+  }
 }
 
 .photo {
@@ -206,6 +326,14 @@ body {
   margin  : 0 auto;
   width   : 200px;
   height  : 200px;
+
+  @media screen and (max-width: 800px) {}
+
+  @media screen and (max-width: 480px) {
+    margin: 0px;
+    width : 50%;
+    height: 60px;
+  }
 }
 
 .image {
@@ -218,6 +346,14 @@ body {
   border-radius: 100%;
   border       : 3px solid @color-secondary;
   overflow     : hidden;
+
+  @media screen and (max-width: 800px) {}
+
+  @media screen and (max-width: 480px) {
+    width : 120px;
+    height: 120px;
+    top   : -10px;
+  }
 }
 
 .image-border {
@@ -230,6 +366,14 @@ body {
   border-radius: 100%;
   border       : 1px solid @color-secondary;
   box-shadow   : 0px 0px 7px rgb(0 0 0 / 20%);
+
+  @media screen and (max-width: 800px) {}
+
+  @media screen and (max-width: 480px) {
+    width : 129px;
+    height: 129px;
+    top   : -10px;
+  }
 }
 
 .left-section {
@@ -244,6 +388,14 @@ body {
   // text-align    : center;
   line-height      : 22px;
   letter-spacing   : 1px;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 }
 
 .title {
@@ -271,6 +423,14 @@ body {
   opacity         : 0.3;
   display         : inline-block;
   position        : absolute;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 }
 
 .sep {
@@ -280,6 +440,20 @@ body {
   height          : calc(100% - 12px);
   border-radius   : 0px 0px 0px 6px;
   background-color: @color-secondary;
+
+  @media screen and (max-width: 800px) {
+    float   : none;
+    position: relative;
+    margin  : 0px;
+    width   : 0px;
+  }
+
+  @media screen and (max-width: 480px) {
+    float   : none;
+    position: relative;
+    margin  : 0px;
+    width   : 0px;
+  }
 }
 
 .right {
@@ -287,16 +461,50 @@ body {
   width : calc(100% - 275px);
   height: calc(100% - 12px);
   margin: 6px;
+
+  @media screen and (max-width: 800px) {
+    float   : none;
+    position: relative;
+    width   : 95%;
+    height  : auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    float   : none;
+    position: relative;
+    width   : 95%;
+    height  : auto;
+  }
 }
 
 .block {
   margin    : 6px;
   min-height: 230px;
+
+  @media screen and (max-width: 800px) {
+    margin-bottom: 50px;
+    text-align   : center;
+  }
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: 50px;
+    text-align   : center;
+  }
 }
 
 .block-200 {
   margin: 6px;
   height: 200px;
+
+  @media screen and (max-width: 800px) {
+    height    : auto;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 480px) {
+    height    : auto;
+    text-align: center;
+  }
 }
 
 .timeline {
@@ -378,15 +586,33 @@ body {
 }
 
 .work1 {
-  position     : relative;
-  width        : 320px;
-  border       : 1px solid @color-primary;
-  top          : 0px;
-  left         : 30px;
-  border-radius: 0px 6px 6px;
-  padding      : 5px;
-  border-left  : 10px solid @color-primary;
-  overflow     : hidden;
+  position        : relative;
+  width           : 320px;
+  border          : 1px solid @color-primary;
+  // top          : 0px;
+  top             : 15px;
+  // left         : 30px;
+  left            : 110px;
+  border-radius   : 0px 6px 6px;
+  padding         : 5px;
+  border-left     : 10px solid @color-primary;
+  overflow        : hidden;
+
+  @media screen and (max-width: 800px) {
+    width     : 60%;
+    text-align: left;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  @media screen and (max-width: 480px) {
+    width     : 60%;
+    text-align: left;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 
 .circle {
@@ -398,29 +624,87 @@ body {
   left            : 300px;
   top             : -10px;
   opacity         : .6;
+
+  @media screen and (max-width: 800px) {
+    left: 89%;
+  }
+
+  @media screen and (max-width: 480px) {
+    left: 89%;
+  }
 }
 
 .line2 {
-  width           : 75px;
+  width           : 105px;
   height          : 1px;
   background-color: @color-secondary;
   position        : absolute;
-  top             : 35px;
-  left            : -20px;
-  transform       : rotate(70deg);
+  top             : 60px;
+  left            : -33px;
+  transform       : rotate(78deg);
 }
 
 .work2 {
-  position     : relative;
-  width        : 320px;
-  /*   height  : 150px; */
-  border       : 1px solid @color-primary;
-  top          : 70px;
-  left         : 30px;
-  border-radius: 0px 6px 6px;
-  padding      : 5px;
-  border-left  : 10px solid @color-primary;
-  overflow     : hidden;
+  position           : relative;
+  width              : 320px;
+  /*   height        : 150px; */
+  border             : 1px solid @color-primary;
+  // top          : 70px;
+  top                : 30px;
+  // left            : 30px;
+  left               : 110px;
+  border-radius      : 0px 6px 6px;
+  padding            : 5px;
+  border-left        : 10px solid @color-primary;
+  overflow           : hidden;
+
+  @media screen and (max-width: 800px) {
+    width     : 60%;
+    text-align: left;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar-track {
+      background-color: @gray20;
+      border-radius   : 6px;
+    }
+
+    &::-webkit-scrollbar {
+      width           : 6px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius   : 6px;
+      background-color: @color-primary;
+      opacity         : .5;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width     : 60%;
+    text-align: left;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar-track {
+      background-color: @gray20;
+      border-radius   : 6px;
+    }
+
+    &::-webkit-scrollbar {
+      width           : 6px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius   : 6px;
+      background-color: @color-primary;
+      opacity         : .5;
+    }
+  }
 }
 
 .tp-2 {
@@ -446,6 +730,14 @@ body {
 .skill-title {
   margin        : 5px 5px 5px 177px;
   letter-spacing: 1px;
+
+  @media screen and (max-width: 800px) {
+    margin: 5px 5px 5px 30%;
+  }
+
+  @media screen and (max-width: 480px) {
+    margin: 10px 0px;
+  }
 }
 
 .lv-name {
@@ -468,6 +760,11 @@ body {
   display       : inline-block;
   width         : 130px;
   letter-spacing: 1px;
+
+  @media screen and (max-width: 800px) {
+    width    : 30%;
+    min-width: 140px;
+  }
 }
 
 .edu {
@@ -476,6 +773,18 @@ body {
   width         : 230px;
   vertical-align: top;
   position      : relative;
+
+  @media screen and (max-width: 800px) {
+    display   : block;
+    width     : 100%;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 480px) {
+    display   : block;
+    width     : 100%;
+    text-align: left;
+  }
 }
 
 .dot {
@@ -512,6 +821,14 @@ body {
   letter-spacing: 1px;
   font-size     : 14px;
   line-height   : 18px;
+
+  @media screen and (max-width: 800px) {
+    margin: 5px 5px 30px 50px;
+  }
+
+  @media screen and (max-width: 480px) {
+    margin: 5px 5px 30px 50px;
+  }
 }
 
 .icon {
@@ -530,6 +847,14 @@ body {
   width            : 220px;
   line-height      : 18px;
   letter-spacing   : 1px;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 }
 
 .v-space {
@@ -581,6 +906,21 @@ table {
   letter-spacing: 1px;
 }
 
+.cv-button-panel {
+  width: 100%;
+
+  @media screen and (max-width: 800px) {
+    width : 95%;
+    margin: 10px auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    width    : 95%;
+    margin   : 10px auto;
+    min-width: 320px;
+  }
+}
+
 .cv-page {
   margin          : 0px auto 30px auto;
   padding         : 20px;
@@ -592,8 +932,22 @@ table {
   overflow        : hidden;
 
   &.animation {
-    animation-name    : show-height;
+    animation         : show-height;
     animation-duration: 1.5s;
+    transform-origin  : left top;
+  }
+
+  @media screen and (max-width: 800px) {
+    width        : 95%;
+    text-align   : center;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 480px) {
+    width        : 95%;
+    text-align   : center;
+    min-width    : 320px;
+    margin-bottom: 10px;
   }
 }
 
@@ -610,6 +964,18 @@ table {
   margin        : 30px;
   text-align    : left;
   letter-spacing: 1px;
+
+  @media screen and (max-width: 480px) {
+    ul {
+      padding: 0px;
+
+      li {
+        border-left    : 5px solid #C5DDE4;
+        list-style-type: none;
+        padding        : 5px;
+      }
+    }
+  }
 }
 
 .cv-1st-letter {
