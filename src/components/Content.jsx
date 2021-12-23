@@ -85,17 +85,17 @@ class Content extends Component {
 }
 
 const AboutMe = props => {
-    return (<div class="left-section">
-        <span class="title">{props.subject}</span>
-        <div class="h-sep"></div>
-        <div class="intro">{props ? props.intro : ''}</div>
+    return (<div className="left-section">
+        <span className="title">{props.subject}</span>
+        <div className="h-sep"></div>
+        <div className="intro">{props ? props.intro : ''}</div>
     </div>);
 }
 
 const ContactMe = props => {
-    return (<div class="left-section">
-        <span class="title">{props.subject}</span>
-        <div class="h-sep"></div>
+    return (<div className="left-section">
+        <span className="title">{props.subject}</span>
+        <div className="h-sep"></div>
         {renderIcon(PhoneAndroidRoundedIcon, props.phone)}
         {renderIcon(MailOutlineRoundedIcon, props.email)}
         {renderIcon(DescriptionRoundedIcon, props.blog, true, "技術分享文章")}
@@ -115,9 +115,9 @@ const renderIcon = (
             <Icon className={classes.root} />
         </div>
         {!isLink ?
-            <div class="contact-info">{info}</div>
+            <div className="contact-info">{info}</div>
             :
-            <div class="contact-info"><a href={info} target="_blank">{linkName}</a></div>}
+            <div className="contact-info"><a href={info} target="_blank">{linkName}</a></div>}
     </div>);
 }
 

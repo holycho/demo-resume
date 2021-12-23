@@ -65,7 +65,7 @@ const CompanyCard = props => {
         posList.push(<div className="work-desc">{it.desc}</div>)
     });
 
-    return (<div class={props.clsName}>
+    return (<div className={props.clsName}>
         <div className="circle"></div>
         <div className="company">{props.company}</div>
         {posList}
@@ -132,8 +132,8 @@ const EducationBlock = props => {
         if (college) {
             _list.push(<EducationCard school={college.school} duration={college.duration} />);
         }
-        _list.push(<div class="v-sep" />);
-        _list.push(<div class="v-space" />);
+        _list.push(<div className="v-sep" />);
+        _list.push(<div className="v-space" />);
         if (master) {
             _list.push(<EducationCard school={master.school} duration={master.duration} comment={master.paper} />);
         }
@@ -188,7 +188,7 @@ const EducationCard = props => {
         <div className="dot" />
         <div className="edu-title">{props.school}</div>
         <div className="edu-duration">{props.duration}</div>
-        {props.comment ? <div class="edu-comment">{`論文名稱 : ${props.comment}`}</div> : null}
+        {props.comment ? <div className="edu-comment">{`論文名稱 : ${props.comment}`}</div> : null}
     </div>);
 }
 
